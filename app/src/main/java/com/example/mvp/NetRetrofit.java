@@ -11,12 +11,12 @@ public class NetRetrofit {
     private NetRetrofit() {
     }
 
-    Retrofit retrofit = new Retrofit.Builder()
+    private Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create()) // 파싱등록
             .build();
 
-    RetrofitService service = retrofit.create(RetrofitService.class);
+    private RetrofitService service = retrofit.create(RetrofitService.class);
 
     public RetrofitService getService() {
         return service;

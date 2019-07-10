@@ -1,5 +1,6 @@
 package com.example.mvp;
 
+import com.example.mvp.response.GithubResponse;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -7,8 +8,9 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface RetrofitService {
     @GET("/search/users")
-    Call<ArrayList<JsonObject>> getListRepos(@Path("q") String search);
+    Call<GithubResponse> getUserList(@Query("q") String search);
 }
