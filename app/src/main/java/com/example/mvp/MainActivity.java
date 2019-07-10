@@ -41,7 +41,20 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(this, mUserProfiles);
         recyclerView.setAdapter(mAdapter);
 
-        onSearch(randomAlphaNumeric(3));
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true){
+                    onSearch(randomAlphaNumeric(3));
+                    try {
+                        Thread.sleep(10000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     }
 
     public static String randomAlphaNumeric(int count) {
@@ -61,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<GithubResponse> call, @NonNull Response<GithubResponse> response) {
                 Log.d("Retrofit", response.toString());
                 if(response.body() != null){
+                    mUserProfiles.clear();
                     mList = response.body().getResult();
                     for(GithubUserData list : mList){
                         mUserProfiles.add(new UserProfile(list.getLogin(), list.getAvatar_url()));
