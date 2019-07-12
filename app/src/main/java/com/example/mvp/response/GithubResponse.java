@@ -1,6 +1,6 @@
 package com.example.mvp.response;
 
-import com.example.mvp.item.GithubUserData;
+import com.example.mvp.item.UserProfile;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ public class GithubResponse extends BaseResponse{
     private boolean incompleteResults;
 
     @SerializedName("items")
-    private ArrayList<GithubUserData> result;
+    private ArrayList<UserProfile> result;
 
-    public ArrayList<GithubUserData> getResult() {
+    public ArrayList<UserProfile> getResult() {
         return result;
     }
 }

@@ -1,3 +1,5 @@
+package com.example.mvp;
+
 public class BaseContract {
 
     public interface Presenter<T> {

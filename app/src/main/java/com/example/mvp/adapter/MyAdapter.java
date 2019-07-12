@@ -22,10 +22,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     private ArrayList<UserProfile> mData;
     private LayoutInflater mInflater;
 
+    public void setData(ArrayList<UserProfile> mData) {
+        this.mData = mData;
+    }
+
     // data is passed into the constructor
-    public MyAdapter(Context context, ArrayList<UserProfile> data) {
+    public MyAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        mData = new ArrayList<>();
     }
 
     // inflates the row layout from xml when needed
