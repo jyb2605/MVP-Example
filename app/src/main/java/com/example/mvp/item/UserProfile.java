@@ -19,15 +19,9 @@ public class UserProfile {
         return mName;
     }
 
-    public void setName(String mName) {
-        this.mName = mName;
-    }
 
     public String getImageUrl() {
         return ImageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.ImageUrl = imageUrl;
-    }
 }
