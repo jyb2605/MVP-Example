@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             @Override
             public void run() {
                 while(true){
-//                    onSearch(randomAlphaNumeric(3));
                     mPresenter.loadData();
                     try {
                         Thread.sleep(10000);
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void setItems(ArrayList<UserProfile> list) {
-//        mList = list;
         mAdapter.setData(list);
         mAdapter.notifyDataSetChanged();
     }

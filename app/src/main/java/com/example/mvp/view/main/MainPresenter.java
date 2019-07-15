@@ -30,11 +30,10 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void loadData() {
-        onSearch(randomAlphaNumeric(3));
+        onSearch(randomAlphaNumeric());
     }
 
-
-    public void onSearch(String search){
+    private void onSearch(String search){
         Call<GithubResponse> res = NetRetrofit.getInstance().getService().getUserList(search);
         res.enqueue(new Callback<GithubResponse>(){
 
@@ -53,7 +52,8 @@ public class MainPresenter implements MainContract.Presenter {
         });
     }
 
-    public static String randomAlphaNumeric(int count) {
+    private static String randomAlphaNumeric() {
+        int count = 3;
         StringBuilder builder = new StringBuilder();
         while (count-- != 0) {
             int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
