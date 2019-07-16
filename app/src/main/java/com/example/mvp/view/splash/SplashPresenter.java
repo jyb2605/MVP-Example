@@ -54,7 +54,6 @@ public class SplashPresenter implements SplashContract.Presenter {
                     @SuppressLint("ResourceAsColor")
                     @Override
                     public void run() {
-                        Log.d("Presenter", "End Waiting");
                         tvTitle.setTextColor(Color.parseColor("#EC1111"));
                     }
                 });

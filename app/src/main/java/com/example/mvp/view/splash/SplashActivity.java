@@ -44,7 +44,6 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Log.d("View", "End Waiting in SplashActivity");
 
                 mIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(mIntent);
