@@ -22,7 +22,7 @@ public interface MainContract {
         void releaseView();
 
         // API 통신을 통해 데이터를 받아옵니다.
-        void loadData();
+        void loadData(String query);
 
     }
 }

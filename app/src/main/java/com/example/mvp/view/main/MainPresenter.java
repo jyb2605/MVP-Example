@@ -29,8 +29,14 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void loadData() {
-        onSearch(randomAlphaNumeric());
+    public void loadData(String query) {
+        Log.d("MainPresenter", query);
+
+        if(query.equals("")){
+            onSearch(randomAlphaNumeric());
+        }else{
+            onSearch(query);
+        }
     }
 
     private void onSearch(String search){
@@ -42,6 +48,7 @@ public class MainPresenter implements MainContract.Presenter {
                 Log.d("Retrofit", response.toString());
                 if(response.body() != null){
                     view.setItems(response.body().getResult());
+                    Log.d("retrofit", response.body().getResult().toString());
                 }
             }
 

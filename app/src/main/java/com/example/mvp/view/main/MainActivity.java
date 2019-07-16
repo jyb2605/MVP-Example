@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.mvp.R;
 import com.example.mvp.adapter.MyAdapter;
@@ -30,20 +33,31 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mAdapter = new MyAdapter(this);
         recyclerView.setAdapter(mAdapter);
 
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(true){
-                    mPresenter.loadData();
-                    try {
-                        Thread.sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+        findViewById(R.id.btnSearch)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        EditText etQuery = findViewById(R.id.etQuery);
+                        mPresenter.loadData(etQuery.getText().toString());
                     }
-                }
-            }
-        }).start();
+                });
+
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    mPresenter.loadData();
+//                    try {
+//                        Thread.sleep(10000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }).start();
+
+
     }
 
     @Override
