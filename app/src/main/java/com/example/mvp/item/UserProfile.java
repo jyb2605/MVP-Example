@@ -10,9 +10,13 @@ public class UserProfile {
     @SerializedName("avatar_url")
     private String ImageUrl;
 
-    public UserProfile(String name, String imageUrl){
+    @SerializedName("score")
+    private double score;
+
+    public UserProfile(String name, String imageUrl, double score){
         this.mName = name;
         this.ImageUrl = imageUrl;
+        this.score = score;
     }
 
     public String getName() {
@@ -24,4 +28,7 @@ public class UserProfile {
         return ImageUrl;
     }
 
+    public double getScore() {
+        return score;
+    }
 }

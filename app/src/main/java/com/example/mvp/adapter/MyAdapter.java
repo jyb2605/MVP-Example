@@ -1,5 +1,6 @@
 package com.example.mvp.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,13 +42,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     }
 
     // binds the data to the TextView in each row
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         UserProfile userProfile = mData.get(position);
-        holder.tvProfileName.setText(userProfile.getName());
         Glide.with(Objects.requireNonNull(mInflater.getContext()))
                 .load(userProfile.getImageUrl())
                 .into(holder.ivProfileImage);
+        holder.tvProfileName.setText(userProfile.getName());
+        holder.tvScore.setText(Double.toString(userProfile.getScore()));
+
     }
 
     // total number of rows
@@ -61,11 +65,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView ivProfileImage;
         TextView tvProfileName;
+        TextView tvScore;
 
         ViewHolder(View itemView) {
             super(itemView);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvProfileName = itemView.findViewById(R.id.tvProfileName);
+            tvScore = itemView.findViewById(R.id.tvScore);
             itemView.setOnClickListener(this);
         }
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MVP</string>
+    <string name="search">Search</string>
+    <string name="explain_string1">Search github user by nickname</string>
 </resources>

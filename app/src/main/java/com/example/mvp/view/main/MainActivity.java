@@ -41,23 +41,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                         mPresenter.loadData(etQuery.getText().toString());
                     }
                 });
-
-//
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                while (true) {
-//                    mPresenter.loadData();
-//                    try {
-//                        Thread.sleep(10000);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//        }).start();
-
-
     }
 
     @Override

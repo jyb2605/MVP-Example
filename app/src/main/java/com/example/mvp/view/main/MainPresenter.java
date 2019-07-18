@@ -48,7 +48,6 @@ public class MainPresenter implements MainContract.Presenter {
                 Log.d("Retrofit", response.toString());
                 if(response.body() != null){
                     view.setItems(response.body().getResult());
-                    Log.d("retrofit", response.body().getResult().toString());
                 }
             }
 
